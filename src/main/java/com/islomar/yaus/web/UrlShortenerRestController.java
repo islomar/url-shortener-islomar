@@ -31,7 +31,7 @@ public class UrlShortenerRestController {
   @ResponseStatus(value = HttpStatus.CREATED)
   @ResponseBody
   String createShortUrl(@RequestBody String uriToBeShortened) {
-    return "URL to be shortened: " + uriToBeShortened;
+    return "http://oso.co/000000";
   }
 
 }

@@ -25,6 +25,7 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 public class UrlShortenerRestControllerShould {
 
   private static final URI OSOCO_URI = URI.create("http://www.osoco.es");
+  private static final URI ESAILORS_URI = URI.create("http://www.esailors.de");
 
   private MockMvc mockMvc;
 
@@ -50,13 +51,18 @@ public class UrlShortenerRestControllerShould {
   public void
   create_a_short_url_from_a_post_request() throws Exception {
 
-    mockMvc.perform(post("/")
-        .contentType(MediaType.TEXT_PLAIN)
-        .content(OSOCO_URI.toString())
-    )
-        .andExpect(status().isCreated())
-        .andExpect(content().string("URL to be shortened: " + OSOCO_URI.toString()));
+    sendPostRequestAndAssertResponse(OSOCO_URI, "http://oso.co/000000");
   }
+
+
+  @Test
+  public void
+  create_generate_different_short_urls() throws Exception {
+
+    sendPostRequestAndAssertResponse(OSOCO_URI, "http://oso.co/000000");
+    sendPostRequestAndAssertResponse(ESAILORS_URI, "http://oso.co/000001");
+  }
+
 
   @Test
   public void
@@ -66,4 +72,15 @@ public class UrlShortenerRestControllerShould {
         .andExpect(status().isOk())
         .andExpect(content().string(OSOCO_URI.toString()));
   }
+
+  private void sendPostRequestAndAssertResponse(URI uriToBeShortened, String expectedShortUri) throws Exception {
+
+    mockMvc.perform(post("/")
+                        .contentType(MediaType.TEXT_PLAIN)
+                        .content(uriToBeShortened.toString())
+    )
+        .andExpect(status().isCreated())
+        .andExpect(content().string(expectedShortUri));
+  }
+
 }
