@@ -22,6 +22,12 @@ Build status on Travis CI:
 
 
 ## Interesting links
+### Heroku
 * [https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku](https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku)
 * [https://devcenter.heroku.com/articles/getting-started-with-java#deploy-the-app](https://devcenter.heroku.com/articles/getting-started-with-java#deploy-the-app)
+
+### REST services
 * [Building REST services](http://spring.io/guides/tutorials/bookmarks/)
+
+### Testing
+* [http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-rest-api/](http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-rest-api/)
