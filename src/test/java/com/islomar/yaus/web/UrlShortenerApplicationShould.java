@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = UrlShortenerApplication.class)
 @WebAppConfiguration
-public class UrlShortenerApplicationTests {
+public class UrlShortenerApplicationShould {
 
 	@Test
 	public void contextLoads() {
