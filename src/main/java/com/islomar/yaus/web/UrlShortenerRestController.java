@@ -11,22 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UrlShortenerRestController {
 
-  @RequestMapping("/")
-  @ResponseBody
-  String home() {
-    return "Hello World, here I am!";
-  }
-
   @RequestMapping(value = "/{shortUrlId}", method = RequestMethod.GET)
   @ResponseBody
   String findFullUrl(@PathVariable String shortUrlId) {
     return "http://www.osoco.es";
   }
 
-  @RequestMapping(method = RequestMethod.POST)
+  @RequestMapping(value = "/{urlToBeShortened}", method = RequestMethod.POST)
   @ResponseStatus(value = HttpStatus.CREATED)
   @ResponseBody
-  String createShortUrl() {
+  String createShortUrl(@PathVariable String urlToBeShortened) {
+    System.out.println("holaaaaaaa");
     return "http://oso.co/000000";
   }
 

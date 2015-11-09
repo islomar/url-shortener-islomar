@@ -33,18 +33,11 @@ public class UrlShortenerRestControllerShould {
     this.mockMvc = webAppContextSetup(webApplicationContext).build();
   }
 
-  @Test
-  public void
-  return_hello_world() throws Exception {
-    mockMvc.perform(get("/"))
-        .andExpect(status().isOk())
-        .andExpect(content().string("Hello World, here I am!"));
-  }
 
   @Test
   public void
   create_a_short_url_from_a_post_request() throws Exception {
-    mockMvc.perform(post("/http://www.osoco.es"))
+    mockMvc.perform(post("/thisIsTheFullUrl"))
         .andExpect(status().isCreated())
         .andExpect(content().string("http://oso.co/000000"));
   }
