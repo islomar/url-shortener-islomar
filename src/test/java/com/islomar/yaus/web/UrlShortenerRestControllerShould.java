@@ -49,4 +49,11 @@ public class UrlShortenerRestControllerShould {
         .andExpect(content().string("http://oso.co/000000"));
   }
 
+  @Test
+  public void
+  recover_full_url_from_short_url() throws Exception {
+    mockMvc.perform(get("/000000"))
+        .andExpect(status().isOk())
+        .andExpect(content().string("http://www.osoco.es"));
+  }
 }
