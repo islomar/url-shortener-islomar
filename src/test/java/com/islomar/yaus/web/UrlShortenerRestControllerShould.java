@@ -13,6 +13,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.context.WebApplicationContext;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
@@ -38,6 +39,14 @@ public class UrlShortenerRestControllerShould {
     mockMvc.perform(get("/"))
         .andExpect(status().isOk())
         .andExpect(content().string("Hello World, here I am!"));
+  }
+
+  @Test
+  public void
+  create_a_short_url_from_a_post_request() throws Exception {
+    mockMvc.perform(post("/http://www.osoco.es"))
+        .andExpect(status().isOk())
+        .andExpect(content().string("http://oso.co/000000"));
   }
 
 }
