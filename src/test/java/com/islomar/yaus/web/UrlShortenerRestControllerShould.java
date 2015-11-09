@@ -45,7 +45,7 @@ public class UrlShortenerRestControllerShould {
   public void
   create_a_short_url_from_a_post_request() throws Exception {
     mockMvc.perform(post("/http://www.osoco.es"))
-        .andExpect(status().isOk())
+        .andExpect(status().isCreated())
         .andExpect(content().string("http://oso.co/000000"));
   }
 
