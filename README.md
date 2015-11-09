@@ -8,13 +8,13 @@ Build status on Travis CI:
 ## Heroku 
 
 ### Production URL
-(http://url-shortener-islomar.herokuapp.com)[http://url-shortener-islomar.herokuapp.com]
+[http://url-shortener-islomar.herokuapp.com](http://url-shortener-islomar.herokuapp.com)
 
 ### Administration
-(https://dashboard.heroku.com/apps/url-shortener-islomar/)[https://dashboard.heroku.com/apps/url-shortener-islomar/]
+[https://dashboard.heroku.com/apps/url-shortener-islomar/](https://dashboard.heroku.com/apps/url-shortener-islomar/)
 
 ### Logs
-(https://papertrailapp.com/systems/url-shortener-islomar/events)[https://papertrailapp.com/systems/url-shortener-islomar/events]
+[https://papertrailapp.com/systems/url-shortener-islomar/events](https://papertrailapp.com/systems/url-shortener-islomar/events)
 
 ### Local execution
 1. From a console, execute: `heroku local web
@@ -22,4 +22,4 @@ Build status on Travis CI:
 
 
 ## Interesting links
-(https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku)[https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku]
+[https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku](https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku)
