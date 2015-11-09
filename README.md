@@ -1,6 +1,6 @@
 Build status on Travis CI:
 
-[![Build Status](https://travis-ci.org/islomar/url-shortener.svg)](https://travis-ci.org/islomar/url-shortener)
+[![Build Status](https://travis-ci.org/islomar/url-shortener-islomar.svg)](https://travis-ci.org/islomar/url-shortener-islomar)
 
 # Yet Another URL Shortener (YAUS)
 
@@ -17,7 +17,7 @@ Build status on Travis CI:
 [https://papertrailapp.com/systems/url-shortener-islomar/events](https://papertrailapp.com/systems/url-shortener-islomar/events)
 
 ### Local execution
-1. From a console, execute: `heroku local web
+1. From a console, execute: `heroku local web`
 2. From a web browser, access: [http://localhost:5000/](http://localhost:5000/)
 
 
