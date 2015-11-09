@@ -55,7 +55,7 @@ public class UrlShortenerRestControllerShould {
         .content(OSOCO_URI.toString())
     )
         .andExpect(status().isCreated())
-        .andExpect(content().string("http://oso.co/000000"));
+        .andExpect(content().string("URL to be shortened: " + OSOCO_URI.toString()));
   }
 
   @Test
