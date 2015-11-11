@@ -51,7 +51,7 @@ public class UrlShortenerRestControllerShould {
   public void
   create_a_short_url_from_a_post_request() throws Exception {
 
-    sendPostRequestAndAssertResponse(OSOCO_URI, "http://oso.co/000000");
+    sendPostRequestAndAssertResponse(OSOCO_URI, "http://oso.co/339d3b53");
   }
 
 
@@ -59,8 +59,8 @@ public class UrlShortenerRestControllerShould {
   public void
   create_generate_different_short_urls() throws Exception {
 
-    sendPostRequestAndAssertResponse(OSOCO_URI, "http://oso.co/000000");
-    sendPostRequestAndAssertResponse(ESAILORS_URI, "http://oso.co/000001");
+    sendPostRequestAndAssertResponse(OSOCO_URI, "http://oso.co/339d3b53");
+    sendPostRequestAndAssertResponse(ESAILORS_URI, "http://oso.co/e7ba36c9");
   }
 
 
@@ -72,6 +72,19 @@ public class UrlShortenerRestControllerShould {
         .andExpect(status().isOk())
         .andExpect(content().string(OSOCO_URI.toString()));
   }
+
+
+  @Test
+  public void
+  receive_http_status_code_400_sdfasdfasdfasdf() throws Exception {
+
+    mockMvc.perform(post("/")
+                        .contentType(MediaType.TEXT_PLAIN)
+                        .content("NotValidURL")
+    )
+        .andExpect(status().isBadRequest());
+  }
+
 
   private void sendPostRequestAndAssertResponse(URI uriToBeShortened, String expectedShortUri) throws Exception {
 

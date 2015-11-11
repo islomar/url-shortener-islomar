@@ -1,6 +1,6 @@
-Build status on Travis CI:
-
 [![Build Status](https://travis-ci.org/islomar/url-shortener-islomar.svg)](https://travis-ci.org/islomar/url-shortener-islomar)
+
+[![Coverage Status](https://coveralls.io/repos/islomar/url-shortener-islomar/badge.svg?branch=master&service=github)](https://coveralls.io/github/islomar/url-shortener-islomar?branch=master)
 
 # Yet Another URL Shortener (YAUS)
 
@@ -28,6 +28,14 @@ Build status on Travis CI:
 
 ### REST services
 * [Building REST services](http://spring.io/guides/tutorials/bookmarks/)
+#### Exception handling
+* [https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc](https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc)
+* [http://stackoverflow.com/questions/26134331/how-to-respond-with-http-status-code-in-a-spring-mvc-restcontroller-responsebo](http://stackoverflow.com/questions/26134331/how-to-respond-with-http-status-code-in-a-spring-mvc-restcontroller-responsebo)
 
 ### Testing
 * [http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-rest-api/](http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-rest-api/)
+* [http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-forms/](http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-forms/)
+* [http://www.byteslounge.com/tutorials/spring-mvc-requestmapping-consumes-condition-example](http://www.byteslounge.com/tutorials/spring-mvc-requestmapping-consumes-condition-example)
+
+### URL Shortening
+* [https://en.wikipedia.org/wiki/URL_shortening](https://en.wikipedia.org/wiki/URL_shortening)
