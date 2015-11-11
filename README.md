@@ -32,14 +32,15 @@
 * [https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc](https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc)
 * [http://stackoverflow.com/questions/26134331/how-to-respond-with-http-status-code-in-a-spring-mvc-restcontroller-responsebo](http://stackoverflow.com/questions/26134331/how-to-respond-with-http-status-code-in-a-spring-mvc-restcontroller-responsebo)
 
-### Testing
-* [http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-rest-api/](http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-rest-api/)
-* [http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-forms/](http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-forms/)
-* [http://www.byteslounge.com/tutorials/spring-mvc-requestmapping-consumes-condition-example](http://www.byteslounge.com/tutorials/spring-mvc-requestmapping-consumes-condition-example)
-
 ### URL Shortening
 * [https://en.wikipedia.org/wiki/URL_shortening](https://en.wikipedia.org/wiki/URL_shortening)
 
 
 ### Spring Boot
 * [http://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-structuring-your-code.html](http://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-structuring-your-code.html)
+
+#### Testing
+* [http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html](http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html)
+* [http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-rest-api/](http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-rest-api/)
+* [http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-forms/](http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-forms/)
+* [http://www.byteslounge.com/tutorials/spring-mvc-requestmapping-consumes-condition-example](http://www.byteslounge.com/tutorials/spring-mvc-requestmapping-consumes-condition-example)

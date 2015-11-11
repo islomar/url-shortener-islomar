@@ -18,6 +18,7 @@ import java.net.URI;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
@@ -77,8 +78,8 @@ public class UrlShortenerRestControllerShould {
     sendPostRequestAndAssertResponse(OSOCO_URI, URL_SHORTENER_BASE_URL + OSOCO_URL_HASH);
 
     mockMvc.perform(get("/" + OSOCO_URL_HASH))
-        .andExpect(status().isOk())
-        .andExpect(content().string(OSOCO_URI.toString()));
+        .andExpect(status().is3xxRedirection())
+        .andExpect(redirectedUrl(OSOCO_URI.toString()));
   }
 
 

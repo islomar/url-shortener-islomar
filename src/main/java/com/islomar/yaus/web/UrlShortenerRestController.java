@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
+
+import javax.servlet.http.HttpServletResponse;
 
 
 @RestController
@@ -36,11 +39,14 @@ public class UrlShortenerRestController {
   }
 
   //TODO: return URL instead of String??
+  //TODO: exception path (no URL found)
   @RequestMapping(value = "/{shortUrlId}", method = RequestMethod.GET)
-  ResponseEntity<String> findFullUrl(@PathVariable String shortUrlId) {
+  void redirectToFullUrl(@PathVariable String shortUrlId, HttpServletResponse httpServletResponse) throws IOException {
+
     URLShortenerService urlShortenerService = new URLShortenerService(this.shortenedUrlRepository);
-    return new ResponseEntity<String>(urlShortenerService.findURLById(shortUrlId), HttpStatus.OK);
+    httpServletResponse.sendRedirect(urlShortenerService.findURLById(shortUrlId));
   }
+
 
   @RequestMapping(value = "/", method = RequestMethod.POST, consumes = MediaType.TEXT_PLAIN_VALUE)
   ResponseEntity<String> createShortUrl(@RequestBody String uriStringToBeShortened) {
