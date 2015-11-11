@@ -37,7 +37,6 @@ public class UrlShortenerRestController {
 
   //TODO: return URL instead of String??
   @RequestMapping(value = "/{shortUrlId}", method = RequestMethod.GET)
-  @ResponseBody
   ResponseEntity<String> findFullUrl(@PathVariable String shortUrlId) {
     URLShortenerService urlShortenerService = new URLShortenerService(this.shortenedUrlRepository);
     return new ResponseEntity<String>(urlShortenerService.findURLById(shortUrlId), HttpStatus.OK);
