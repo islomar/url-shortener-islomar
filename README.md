@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/islomar/url-shortener-islomar.svg)](https://travis-ci.org/islomar/url-shortener-islomar)
-
 [![Coverage Status](https://coveralls.io/repos/islomar/url-shortener-islomar/badge.svg?branch=master&service=github)](https://coveralls.io/github/islomar/url-shortener-islomar?branch=master)
 
 # Yet Another URL Shortener (YAUS)
