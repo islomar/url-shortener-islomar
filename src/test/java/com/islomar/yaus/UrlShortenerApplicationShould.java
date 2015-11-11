@@ -1,4 +1,6 @@
-package com.islomar.yaus.web;
+package com.islomar.yaus;
+
+import com.islomar.yaus.UrlShortenerApplication;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

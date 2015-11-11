@@ -1,4 +1,4 @@
-package com.islomar.yaus.web;
+package com.islomar.yaus;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

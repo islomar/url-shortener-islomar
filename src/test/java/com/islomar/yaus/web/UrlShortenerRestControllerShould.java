@@ -1,5 +1,7 @@
 package com.islomar.yaus.web;
 
+import com.islomar.yaus.UrlShortenerApplication;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -67,11 +69,14 @@ public class UrlShortenerRestControllerShould {
   }
 
 
+  //TODO: refactor GIVEN-WHEN-THEN, remove assert in Given.
   @Test
   public void
   recover_full_url_from_short_url() throws Exception {
 
-    mockMvc.perform(get("/OSOCO_URL_HASH"))
+    sendPostRequestAndAssertResponse(OSOCO_URI, URL_SHORTENER_BASE_URL + OSOCO_URL_HASH);
+
+    mockMvc.perform(get("/" + OSOCO_URL_HASH))
         .andExpect(status().isOk())
         .andExpect(content().string(OSOCO_URI.toString()));
   }

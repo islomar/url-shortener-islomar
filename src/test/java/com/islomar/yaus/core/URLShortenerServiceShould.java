@@ -34,7 +34,7 @@ public class URLShortenerServiceShould {
 
     URI osocoShortenedURL = urlShortenerService.shorten(OSOCO_URI.toString());
 
-    verify(shortenedUrlRepository).save(URI.create("http://oso.co/339d3b53"));
+    verify(shortenedUrlRepository).save("339d3b53", OSOCO_URI.toURL());
   }
 
   @Test public void

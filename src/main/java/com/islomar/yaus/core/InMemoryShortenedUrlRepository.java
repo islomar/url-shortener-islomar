@@ -1,24 +1,27 @@
 package com.islomar.yaus.core;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URL;
+import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
 
+@Repository
 public class InMemoryShortenedUrlRepository implements ShortenedUrlRepository {
 
   //TODO - concurrency!!!
-  private List<URI> listOfURLs = new ArrayList<URI>();
+  private Map<String, URL> shortenedUriStore = new ConcurrentHashMap<>();
 
   @Override
-  public void save(URI shortenedUri) {
-    listOfURLs.add(shortenedUri);
+  public void save(String shortenedId, URL fullUrl) {
+    shortenedUriStore.put(shortenedId, fullUrl);
   }
 
   @Override
-  public Optional<URI> findByShortenedURI(String shortenedId) {
-    throw new NotImplementedException();
+  public Optional<URL> findByShortenedURI(String shortenedId) {
+    return Optional.ofNullable(shortenedUriStore.get(shortenedId));
   }
 }

@@ -3,6 +3,9 @@ package com.islomar.yaus.core;
 
 import com.google.common.hash.Hashing;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
@@ -11,6 +14,8 @@ import java.util.Optional;
 
 public class URLShortenerService {
 
+  private static final URI URL_SHORTENER_BASE_URL = URI.create("http://oso.co/");
+
   private final ShortenedUrlRepository shortenedUrlRepository;
 
   //TODO: inject shortener algorithm
@@ -18,24 +23,25 @@ public class URLShortenerService {
     this.shortenedUrlRepository = shortenedUrlRepository;
   }
 
-  public URI shorten(String uriStringToBeShortened) throws MalformedURLException {
+  //TODO: refactor, URI vs URL vs String
+  //TODO: wher to validate URL
+  public URI shorten(String urlStringToBeShortened) throws MalformedURLException {
 
-    URL urlToBeShortened = URI.create(uriStringToBeShortened).toURL();
+    URL urlToBeShortened = URI.create(urlStringToBeShortened).toURL();
 
-    URI shortenedURI = generateShortURL(urlToBeShortened);
-    shortenedUrlRepository.save(shortenedURI);
+    String shortenedUrlId = generateShortURL(urlToBeShortened);
+    shortenedUrlRepository.save(shortenedUrlId, urlToBeShortened);
 
-    return shortenedURI;
+    return URI.create(URL_SHORTENER_BASE_URL + shortenedUrlId);
   }
 
-  private URI generateShortURL(URL urlToBeShortened) {
-    String shortUrlId = Hashing.murmur3_32().hashString(urlToBeShortened.toString(), StandardCharsets.UTF_8).toString();
-    return URI.create("http://oso.co/" + shortUrlId);
+  private String generateShortURL(URL urlToBeShortened) {
+    return Hashing.murmur3_32().hashString(urlToBeShortened.toString(), StandardCharsets.UTF_8).toString();
   }
 
   //TODO: what if nothing is found?
   public String findURLById(String shortUrlId) {
-    Optional<URI> shortenedURI = shortenedUrlRepository.findByShortenedURI(shortUrlId);
+    Optional<URL> shortenedURI = shortenedUrlRepository.findByShortenedURI(shortUrlId);
     return shortenedURI.get().toString();
   }
 }

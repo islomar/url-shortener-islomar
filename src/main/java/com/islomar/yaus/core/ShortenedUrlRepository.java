@@ -1,11 +1,13 @@
 package com.islomar.yaus.core;
 
-import java.net.URI;
+import org.springframework.stereotype.Component;
+
+import java.net.URL;
 import java.util.Optional;
 
 public interface ShortenedUrlRepository {
 
-  void save(URI uri);
+  void save(String shortenedId, URL fullUri);
 
-  Optional<URI> findByShortenedURI(String shortenedId);
+  Optional<URL> findByShortenedURI(String shortenedId);
 }
