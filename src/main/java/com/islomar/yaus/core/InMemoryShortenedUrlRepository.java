@@ -18,7 +18,7 @@ public class InMemoryShortenedUrlRepository implements ShortenedUrlRepository {
   }
 
   @Override
-  public Optional<URI> findByShortenedURI(URI shortenedURI) {
+  public Optional<URI> findByShortenedURI(String shortenedId) {
     throw new NotImplementedException();
   }
 }

@@ -26,6 +26,9 @@ public class UrlShortenerRestControllerShould {
 
   private static final URI OSOCO_URI = URI.create("http://www.osoco.es");
   private static final URI ESAILORS_URI = URI.create("http://www.esailors.de");
+  private static final URI URL_SHORTENER_BASE_URL = URI.create("http://oso.co/");
+  public static final String OSOCO_URL_HASH = "339d3b53";
+  public static final String ESAILORS_URL_HASH = "e7ba36c9";
 
   private MockMvc mockMvc;
 
@@ -59,8 +62,8 @@ public class UrlShortenerRestControllerShould {
   public void
   create_generate_different_short_urls() throws Exception {
 
-    sendPostRequestAndAssertResponse(OSOCO_URI, "http://oso.co/339d3b53");
-    sendPostRequestAndAssertResponse(ESAILORS_URI, "http://oso.co/e7ba36c9");
+    sendPostRequestAndAssertResponse(OSOCO_URI, URL_SHORTENER_BASE_URL + OSOCO_URL_HASH);
+    sendPostRequestAndAssertResponse(ESAILORS_URI, URL_SHORTENER_BASE_URL + ESAILORS_URL_HASH);
   }
 
 
@@ -68,7 +71,7 @@ public class UrlShortenerRestControllerShould {
   public void
   recover_full_url_from_short_url() throws Exception {
 
-    mockMvc.perform(get("/000000"))
+    mockMvc.perform(get("/OSOCO_URL_HASH"))
         .andExpect(status().isOk())
         .andExpect(content().string(OSOCO_URI.toString()));
   }

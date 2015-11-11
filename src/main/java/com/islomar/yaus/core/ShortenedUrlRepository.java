@@ -7,5 +7,5 @@ public interface ShortenedUrlRepository {
 
   void save(URI uri);
 
-  Optional<URI> findByShortenedURI(URI shortenedURI);
+  Optional<URI> findByShortenedURI(String shortenedId);
 }

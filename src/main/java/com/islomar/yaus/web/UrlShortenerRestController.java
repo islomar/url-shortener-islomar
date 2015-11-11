@@ -27,10 +27,12 @@ public class UrlShortenerRestController {
     return "URL Shortener up and running!";
   }
 
+  //TODO: return URL instead of String??
   @RequestMapping(value = "/{shortUrlId}", method = RequestMethod.GET)
   @ResponseBody
-  String findFullUrl(@PathVariable String shortUrlId) {
-    return "http://www.osoco.es";
+  ResponseEntity<String> findFullUrl(@PathVariable String shortUrlId) {
+    URLShortenerService urlShortenerService = new URLShortenerService(new InMemoryShortenedUrlRepository());
+    return new ResponseEntity<String>(urlShortenerService.findURLById(shortUrlId), HttpStatus.ACCEPTED);
   }
 
   @RequestMapping(value = "/", method = RequestMethod.POST, consumes = MediaType.TEXT_PLAIN_VALUE)
