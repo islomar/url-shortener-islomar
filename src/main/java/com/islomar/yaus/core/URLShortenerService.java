@@ -33,9 +33,7 @@ public class URLShortenerService {
     return URI.create(URL_SHORTENER_BASE_URL + shortenedUrlId);
   }
 
-  //TODO: what if nothing is found?
-  public String findURLById(String shortUrlId) {
-    Optional<URL> shortenedURI = shortenedUrlRepository.findByShortenedURI(shortUrlId);
-    return shortenedURI.get().toString();
+  public Optional<URL> findURLById(String shortUrlId) {
+    return shortenedUrlRepository.findByShortenedURI(shortUrlId);
   }
 }

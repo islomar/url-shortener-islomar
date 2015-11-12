@@ -57,7 +57,7 @@ public class UrlShortenerRestControllerShould {
   public void
   create_a_short_url_from_a_post_request() throws Exception {
 
-    sendPostRequestAndAssertResponse(OSOCO_URI, "http://oso.co/339d3b53");
+    sendPostRequestAndAssertResponse(OSOCO_URI, URL_SHORTENER_BASE_URL + OSOCO_URL_HASH);
   }
 
 
@@ -68,7 +68,6 @@ public class UrlShortenerRestControllerShould {
     sendPostRequestAndAssertResponse(OSOCO_URI, URL_SHORTENER_BASE_URL + OSOCO_URL_HASH);
     sendPostRequestAndAssertResponse(ESAILORS_URI, URL_SHORTENER_BASE_URL + ESAILORS_URL_HASH);
   }
-
 
   //TODO: refactor GIVEN-WHEN-THEN, remove assert in Given.
   @Test
@@ -82,14 +81,22 @@ public class UrlShortenerRestControllerShould {
         .andExpect(redirectedUrl(OSOCO_URI.toString()));
   }
 
+  @Test
+  public void
+  return_http_status_code_404_when_recovering_non_existing_shortened_url() throws Exception {
+
+    mockMvc.perform(get("/NonExistingId"))
+        .andExpect(status().isNotFound());
+  }
+
 
   @Test
   public void
-  receive_http_status_code_400_sdfasdfasdfasdf() throws Exception {
+  receive_http_status_code_400_when_sending_invalid_url() throws Exception {
 
     mockMvc.perform(post("/")
                         .contentType(MediaType.TEXT_PLAIN)
-                        .content("NotValidURL")
+                        .content("InvalidURL")
     )
         .andExpect(status().isBadRequest());
   }
