@@ -26,6 +26,9 @@
 2. From a web browser, access: [http://localhost:5000/](http://localhost:5000/)
 
 
+### PostgreSQL Database (To Be Done)
+* [https://postgres.heroku.com/databases](https://postgres.heroku.com/databases)
+
 ## Interesting links
 ### Heroku
 * [https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku](https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku)

@@ -40,6 +40,12 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.4-1201-jdbc4</version>
+        </dependency>
+
         <!--Logging-->
         <dependency>
             <groupId>ch.qos.logback</groupId>
