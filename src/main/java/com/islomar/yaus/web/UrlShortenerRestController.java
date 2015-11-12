@@ -67,10 +67,10 @@ public class UrlShortenerRestController {
       return new ResponseEntity<String>(shortenedUrl, HttpStatus.CREATED);
     } catch (IllegalArgumentException | MalformedURLException ex) {
       LOG.error("Error when trying to create a shortened URL for {}: {}", uriStringToBeShortened, ex.getMessage());
-      return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
+      return new ResponseEntity<String>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     } catch (Exception ex) {
       LOG.error("Ooopsss... something unexpected went wrong: " + ex.getMessage());
-      return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+      return new ResponseEntity<String>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
   }
