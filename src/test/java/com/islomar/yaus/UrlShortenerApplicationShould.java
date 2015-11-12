@@ -1,7 +1,5 @@
 package com.islomar.yaus;
 
-import com.islomar.yaus.UrlShortenerApplication;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.web.WebAppConfiguration;

@@ -1,7 +1,5 @@
 package com.islomar.yaus.web;
 
-import com.islomar.yaus.core.ShortenedUrlRepository;
-import com.islomar.yaus.core.ShortenerAlgorithm;
 import com.islomar.yaus.core.URLShortenerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,8 +39,6 @@ public class UrlShortenerRestController {
     return "URL Shortener up and running!";
   }
 
-  //TODO: return URL instead of String??
-  //TODO: exception path (no URL found)
   @RequestMapping(value = "/{shortUrlId}", method = RequestMethod.GET)
   void redirectToFullUrl(@PathVariable String shortUrlId, HttpServletResponse response) throws IOException {
 

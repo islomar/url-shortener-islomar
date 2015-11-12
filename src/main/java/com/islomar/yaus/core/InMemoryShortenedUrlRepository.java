@@ -1,9 +1,7 @@
 package com.islomar.yaus.core;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import java.net.URI;
 import java.net.URL;
 import java.util.Map;
 import java.util.Optional;
