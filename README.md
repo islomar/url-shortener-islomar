@@ -4,6 +4,12 @@
 # Yet Another URL Shortener (YAUS)
 
 
+## Management Services
+/health
+/metrics
+/info
+[http://docs.spring.io/spring-boot/docs/1.2.7.RELEASE/reference/htmlsingle/#production-ready-endpoints](http://docs.spring.io/spring-boot/docs/1.2.7.RELEASE/reference/htmlsingle/#production-ready-endpoints)
+
 ## Heroku 
 
 ### Production URL
