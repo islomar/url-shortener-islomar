@@ -13,7 +13,7 @@ import static org.hamcrest.core.Is.is;
 public class InMemoryShortenedUrlRepositoryShould {
 
   private static final URI OSOCO_URI = URI.create("http://www.osoco.es");
-  public static final String OSOCO_URL_MURMUR3_HASH = "339d3b53";
+  private static final String OSOCO_URL_MURMUR3_HASH = "339d3b53";
 
   private InMemoryShortenedUrlRepository inMemoryShortenedUrlRepository;
 
@@ -23,7 +23,7 @@ public class InMemoryShortenedUrlRepositoryShould {
   }
 
   @Test public void
-  store_a_shortened_url() throws MalformedURLException {
+  save_a_new_shortened_url() throws MalformedURLException {
 
     inMemoryShortenedUrlRepository.save(OSOCO_URL_MURMUR3_HASH, OSOCO_URI.toURL());
 
