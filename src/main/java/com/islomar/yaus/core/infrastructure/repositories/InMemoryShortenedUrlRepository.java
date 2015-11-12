@@ -25,7 +25,7 @@ public final class InMemoryShortenedUrlRepository implements ShortenedUrlReposit
   }
 
   @Override
-  public Optional<URL> findByShortenedURI(String shortenedId) {
+  public Optional<URL> findURLById(String shortenedId) {
     return Optional.ofNullable(shortenedUriStore.get(shortenedId));
   }
 }

@@ -21,7 +21,7 @@ public class PostgreSqlShortenedUrlRepository implements ShortenedUrlRepository 
   }
 
   @Override
-  public Optional<URL> findByShortenedURI(String shortenedId) {
+  public Optional<URL> findURLById(String shortenedId) {
     throw new NotImplementedException();
   }
 

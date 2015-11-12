@@ -50,11 +50,11 @@ public class URLShortenerServiceShould {
   @Test public void
   return_nothing_if_id_does_not_exist() throws MalformedURLException {
 
-    given(shortenedUrlRepository.findByShortenedURI((OSOCO_URL_MURMUR3_HASH))).willReturn(Optional.of(OSOCO_URI.toURL()));
+    given(shortenedUrlRepository.findURLById((OSOCO_URL_MURMUR3_HASH))).willReturn(Optional.of(OSOCO_URI.toURL()));
 
     urlShortenerService.findURLById(OSOCO_URL_MURMUR3_HASH);
 
     verify(idGenerator, never()).generateIdFrom(anyString());
-    verify(shortenedUrlRepository).findByShortenedURI(OSOCO_URL_MURMUR3_HASH);
+    verify(shortenedUrlRepository).findURLById(OSOCO_URL_MURMUR3_HASH);
   }
 }

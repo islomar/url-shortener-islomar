@@ -35,6 +35,6 @@ public final class URLShortenerService {
   }
 
   public Optional<URL> findURLById(String shortUrlId) {
-    return shortenedUrlRepository.findByShortenedURI(shortUrlId);
+    return shortenedUrlRepository.findURLById(shortUrlId);
   }
 }

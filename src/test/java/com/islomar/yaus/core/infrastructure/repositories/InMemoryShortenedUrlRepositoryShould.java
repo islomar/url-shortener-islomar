@@ -27,13 +27,13 @@ public class InMemoryShortenedUrlRepositoryShould {
 
     inMemoryShortenedUrlRepository.save(OSOCO_URL_MURMUR3_HASH, OSOCO_URI.toURL());
 
-    assertThat(inMemoryShortenedUrlRepository.findByShortenedURI(OSOCO_URL_MURMUR3_HASH).get(), is(OSOCO_URI.toURL()));
+    assertThat(inMemoryShortenedUrlRepository.findURLById(OSOCO_URL_MURMUR3_HASH).get(), is(OSOCO_URI.toURL()));
   }
 
   @Test public void
   return_absent_optional_for_a_non_existing_shortened_url() throws MalformedURLException {
 
-    assertThat(inMemoryShortenedUrlRepository.findByShortenedURI(OSOCO_URL_MURMUR3_HASH).isPresent(), is(FALSE));
+    assertThat(inMemoryShortenedUrlRepository.findURLById(OSOCO_URL_MURMUR3_HASH).isPresent(), is(FALSE));
   }
 
 }
