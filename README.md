@@ -33,10 +33,10 @@ Currently there is no user-friendly interface, you would need to use something l
 * Sanitize URL for malicious JavaScript.
 * Create load tests to check the boundaries of the number of requests allowed (detect concurrency problems).
 * New features:
-** Allow to set an expiration time for the shortened URL.
-** Track the use (how many times it was clicked, from which browsers, etc.)
-** Allow users to create ad-hoce shorthened URLs (e.g. iLoveYou for Saint-Valentine presents :-) )
-** Allow users to modify the URL where a shortened URL is pointing (N.B.: think about security issues).
+ * Allow to set an expiration time for the shortened URL.
+ * Track the use (how many times it was clicked, from which browsers, etc.)
+ * Allow users to create ad-hoce shorthened URLs (e.g. iLoveYou for Saint-Valentine presents :-) )
+ * Allow users to modify the URL where a shortened URL is pointing (N.B.: think about security issues).
 
 
 
