@@ -5,9 +5,21 @@
 URL shortener web application. 
 Currently there is no user-friendly interface, you would need to use something like Postman for sending POSTs requests.
  
+# How to run it locally
+* You will need **Java 8** and **Maven** installed.
+* Execute `mvn clean package && java -jar target/url-shortener-1.0.0.jar`
+* You can access the application in [http://localhost:5000](http://localhost:5000) 
+
 ## How to create a new shortened URL
-1. Send a POST request to [http://url-shortener-islomar.herokuapp.com](http://url-shortener-islomar.herokuapp.com), including in the body the URL that you want to shorten.
+1. Send a POST request to [http://url-shortener-islomar.herokuapp.com](http://url-shortener-islomar.herokuapp.com) (or [http://localhost:8080](http://localhost:8080) if you're running the web app locally), including in the body the URL that you want to shorten (e.g. `http://www.esailors.de`). You have several ways to do it:
+ * E.g. using a curl command like: `curl -isbX POST -d "http://www.king.com" -H "Content-Type:text/plain" http://localhost:8080`
+ * Another option is to use some kind of web browser addon like Postman.
 2. You will receive a plain text answer with the shortened URL. You can use it directly to be redirected to your original full URL.
+
+## How to use a shortened URL
+You have two options to check:
+* Either you introduce the shortened URL in a browser,
+* or, from CLI, type something like `curl -v localhost:8080/50784f51` and verify the 302 redirection and the shown location.
 
 ## Current restrictions
 * There is no database persistence, the shortened URLs are stored in-memory, so each time a new deployment/restart were done, everything gets lost.
@@ -21,9 +33,9 @@ The main frameworks, technologies and platforms used have been:
  * Papertrail addon of Heroku to monitor logs.
 
 ## Management Services
-* /health
-* /metrics
-* /info
+* Health: [http://url-shortener-islomar.herokuapp.com/health](http://url-shortener-islomar.herokuapp.com/health)
+* Metrics: [http://url-shortener-islomar.herokuapp.com/metrics](http://url-shortener-islomar.herokuapp.com/metrics)
+* Info: [http://url-shortener-islomar.herokuapp.com/info](http://url-shortener-islomar.herokuapp.com/info)
 * [http://docs.spring.io/spring-boot/docs/1.2.7.RELEASE/reference/htmlsingle/#production-ready-endpoints](http://docs.spring.io/spring-boot/docs/1.2.7.RELEASE/reference/htmlsingle/#production-ready-endpoints)
 
 ## Next improvements
