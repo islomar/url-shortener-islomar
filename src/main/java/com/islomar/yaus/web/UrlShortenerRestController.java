@@ -46,11 +46,13 @@ public class UrlShortenerRestController {
   @RequestMapping(value = "/{shortUrlId}", method = RequestMethod.GET)
   void redirectToFullUrl(@PathVariable String shortUrlId, HttpServletResponse response) throws IOException {
 
-    LOG.debug("Received request to redirect to '%s'", shortUrlId);
+    LOG.debug("Received request to redirect to '{}'", shortUrlId);
     Optional<URL> shortenedURLFound = urlShortenerService.findURLById(shortUrlId);
     if (shortenedURLFound.isPresent()) {
+      LOG.info("Redirecting to {}...", shortenedURLFound.get());
       response.sendRedirect(shortenedURLFound.get().toString());
     } else {
+      LOG.error("The id '{}' was not found", shortUrlId);
       response.sendError(HttpServletResponse.SC_NOT_FOUND);
     }
   }
@@ -58,14 +60,17 @@ public class UrlShortenerRestController {
   @RequestMapping(value = "/", method = RequestMethod.POST, consumes = MediaType.TEXT_PLAIN_VALUE)
   ResponseEntity<String> createShortUrl(@RequestBody String uriStringToBeShortened, HttpServletRequest request) {
 
-    LOG.debug("Received request to shorten the URL '%s'", uriStringToBeShortened);
+    LOG.debug("Received request to shorten the URL '{}'", uriStringToBeShortened);
     try {
       String shortenedUrlId = urlShortenerService.shorten(uriStringToBeShortened);
       String shortenedUrl = request.getRequestURL() + shortenedUrlId;
       return new ResponseEntity<String>(shortenedUrl, HttpStatus.CREATED);
     } catch (IllegalArgumentException | MalformedURLException ex) {
-      LOG.error("Error when trying to create a shortened URL for %s: %s", uriStringToBeShortened, ex.getMessage());
+      LOG.error("Error when trying to create a shortened URL for {}: {}", uriStringToBeShortened, ex.getMessage());
       return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
+    } catch (Exception ex) {
+      LOG.error("Ooopsss... something unexpected went wrong: " + ex.getMessage());
+      return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
   }
