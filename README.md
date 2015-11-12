@@ -2,6 +2,15 @@
 [![Coverage Status](https://coveralls.io/repos/islomar/url-shortener-islomar/badge.svg?branch=master&service=github)](https://coveralls.io/github/islomar/url-shortener-islomar?branch=master)
 
 # Yet Another URL Shortener (YAUS)
+URL shortener web application. 
+Currently there is no user-friendly interface, you would need to use something like Postman for sending POSTs requests.
+ 
+## How to create a new shortened URL
+1. Send a POST request to [http://url-shortener-islomar.herokuapp.com](http://url-shortener-islomar.herokuapp.com), including in the body the URL that you want to shorten.
+2. You will receive a plain text answer with the shortened URL. You can use it directly to be redirected to your original full URL.
+
+## Current restrictions
+* There is no database persistence, the shortened URLs are stored in-memory, so each time a new deployment/restart were done, everything gets lost.
 
 
 ## Management Services
@@ -9,6 +18,27 @@
 * /metrics
 * /info
 * [http://docs.spring.io/spring-boot/docs/1.2.7.RELEASE/reference/htmlsingle/#production-ready-endpoints](http://docs.spring.io/spring-boot/docs/1.2.7.RELEASE/reference/htmlsingle/#production-ready-endpoints)
+
+## Next improvements
+* Create a user-friendly interface so that a user can shorten a URL without the need of anything else (e.g. create a simple web form).
+* Persist shortened URLs in a database (e.g. PostgreSQL).
+* Use JSon to send and receive information (instead of plain text).
+* Store Entities instead of a Map<Stirng, URL>, which includes the id and the absolute URL (probably more things in the future, like expiration time). 
+* Buy a short domain to make a forward to Heroku (so that I could create shortened URLs like http://isi.co/f3065ee6).
+* Check in the DB if the ID already exists before saving (I don't think that with the current algorithm, that's assured).
+* Restrict data type accepted by the REST controller.
+* Use something like Swagger for documenting the API.
+* Create log files.
+* Use Spock for testing.
+* Sanitize URL for malicious JavaScript.
+* Create load tests to check the boundaries of the number of requests allowed (detect concurrency problems).
+* New features:
+** Allow to set an expiration time for the shortened URL.
+** Track the use (how many times it was clicked, from which browsers, etc.)
+** Allow users to create ad-hoce shorthened URLs (e.g. iLoveYou for Saint-Valentine presents :-) )
+** Allow users to modify the URL where a shortened URL is pointing (N.B.: think about security issues).
+
+
 
 ## Heroku 
 
