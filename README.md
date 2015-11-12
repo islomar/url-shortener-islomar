@@ -12,6 +12,13 @@ Currently there is no user-friendly interface, you would need to use something l
 ## Current restrictions
 * There is no database persistence, the shortened URLs are stored in-memory, so each time a new deployment/restart were done, everything gets lost.
 
+## Continuous Deployment
+The main frameworks, technologies and platforms used have been:
+* Spring Boot (just to play around for the first time with it... using Spring for somthing like this is definitely overkilling...).
+* Heroku: I have connected the GitHub account to Heroku, as well to TravisCI (for CI) and coveralls.io (code coverage):
+ * Each time a push is done to the GitHub repository, it builds the application and executes all the tests. If the tests execution is successful, 
+ then the deployment to Heroku is done... et voilà!!! :-)
+ * Papertrail addon of Heroku to monitor logs.
 
 ## Management Services
 * /health
