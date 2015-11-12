@@ -53,3 +53,4 @@
 * [http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-rest-api/](http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-rest-api/)
 * [http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-forms/](http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-forms/)
 * [http://www.byteslounge.com/tutorials/spring-mvc-requestmapping-consumes-condition-example](http://www.byteslounge.com/tutorials/spring-mvc-requestmapping-consumes-condition-example)
+* [https://fbflex.wordpress.com/2013/09/18/testing-spring-boot-applications-with-spock/](https://fbflex.wordpress.com/2013/09/18/testing-spring-boot-applications-with-spock/)
