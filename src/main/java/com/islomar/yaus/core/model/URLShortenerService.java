@@ -1,5 +1,7 @@
-package com.islomar.yaus.core;
+package com.islomar.yaus.core.model;
 
+
+import com.islomar.yaus.core.infrastructure.services.IdGenerator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

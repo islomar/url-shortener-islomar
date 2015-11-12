@@ -1,4 +1,4 @@
-package com.islomar.yaus.core;
+package com.islomar.yaus.core.model;
 
 import java.net.URL;
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package com.islomar.yaus.core;
+package com.islomar.yaus.core.infrastructure.services;
 
 import com.google.common.hash.Hashing;
 

@@ -1,4 +1,6 @@
-package com.islomar.yaus.core;
+package com.islomar.yaus.core.infrastructure.repositories;
+
+import com.islomar.yaus.core.model.ShortenedUrlRepository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

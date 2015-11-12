@@ -1,6 +1,6 @@
 package com.islomar.yaus.web;
 
-import com.islomar.yaus.core.URLShortenerService;
+import com.islomar.yaus.core.model.URLShortenerService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
