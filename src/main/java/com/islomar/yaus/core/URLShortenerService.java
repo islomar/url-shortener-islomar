@@ -3,19 +3,25 @@ package com.islomar.yaus.core;
 
 import com.google.common.hash.Hashing;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 
+@Service
 public class URLShortenerService {
 
+  //TODO: remove
   private static final URI URL_SHORTENER_BASE_URL = URI.create("http://oso.co/");
 
   private final ShortenedUrlRepository shortenedUrlRepository;
   private final ShortenerAlgorithm shortenerAlgorithm;
 
+  @Autowired
   public URLShortenerService(final ShortenedUrlRepository shortenedUrlRepository, ShortenerAlgorithm shortenerAlgorithm) {
     this.shortenedUrlRepository = shortenedUrlRepository;
     this.shortenerAlgorithm = shortenerAlgorithm;

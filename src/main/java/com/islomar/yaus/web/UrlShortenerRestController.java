@@ -26,14 +26,12 @@ import javax.servlet.http.HttpServletResponse;
 @RestController
 public class UrlShortenerRestController {
 
-  private final ShortenedUrlRepository shortenedUrlRepository;
-  private final ShortenerAlgorithm shortenerAlgorithm;
+  private final URLShortenerService urlShortenerService;
 
   @Autowired
-  public UrlShortenerRestController(ShortenedUrlRepository shortenedUrlRepository, ShortenerAlgorithm shortenerAlgorithm) {
+  public UrlShortenerRestController(URLShortenerService urlShortenerService) {
 
-    this.shortenedUrlRepository = shortenedUrlRepository;
-    this.shortenerAlgorithm = shortenerAlgorithm;
+    this.urlShortenerService = urlShortenerService;
   }
 
   @RequestMapping("/")
@@ -47,7 +45,6 @@ public class UrlShortenerRestController {
   @RequestMapping(value = "/{shortUrlId}", method = RequestMethod.GET)
   void redirectToFullUrl(@PathVariable String shortUrlId, HttpServletResponse httpServletResponse) throws IOException {
 
-    URLShortenerService urlShortenerService = new URLShortenerService(this.shortenedUrlRepository, shortenerAlgorithm);
     Optional<URL> shortenedURLFound = urlShortenerService.findURLById(shortUrlId);
     if (shortenedURLFound.isPresent()) {
       httpServletResponse.sendRedirect(shortenedURLFound.get().toString());
@@ -59,8 +56,6 @@ public class UrlShortenerRestController {
   @RequestMapping(value = "/", method = RequestMethod.POST, consumes = MediaType.TEXT_PLAIN_VALUE)
   ResponseEntity<String> createShortUrl(@RequestBody String uriStringToBeShortened) {
 
-    //TODO: it should be injected
-    URLShortenerService urlShortenerService = new URLShortenerService(this.shortenedUrlRepository, shortenerAlgorithm);
     try {
       return new ResponseEntity<String>(urlShortenerService.shorten(uriStringToBeShortened).toString(), HttpStatus.CREATED);
     } catch (IllegalArgumentException | MalformedURLException ex) {
