@@ -12,7 +12,7 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Repository
-public class InMemoryShortenedUrlRepository implements ShortenedUrlRepository {
+public final class InMemoryShortenedUrlRepository implements ShortenedUrlRepository {
 
   private final static Logger LOG = LoggerFactory.getLogger(InMemoryShortenedUrlRepository.class);
 

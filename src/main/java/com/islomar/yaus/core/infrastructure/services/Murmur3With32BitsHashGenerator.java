@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.nio.charset.StandardCharsets;
 
 @Component
-public class Murmur3With32BitsHashGenerator implements IdGenerator {
+public final class Murmur3With32BitsHashGenerator implements IdGenerator {
 
   @Override
   public String generateIdFrom(String textToBeShortened) {

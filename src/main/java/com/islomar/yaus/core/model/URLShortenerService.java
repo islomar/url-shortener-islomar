@@ -12,7 +12,7 @@ import java.net.URL;
 import java.util.Optional;
 
 @Service
-public class URLShortenerService {
+public final class URLShortenerService {
 
   private final ShortenedUrlRepository shortenedUrlRepository;
   private final IdGenerator idGenerator;
