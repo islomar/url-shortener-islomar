@@ -19,7 +19,7 @@ public class InMemoryShortenedUrlRepository implements ShortenedUrlRepository {
   @Override
   public void save(String shortenedId, URL fullUrl) {
     shortenedUriStore.put(shortenedId, fullUrl);
-    LOG.debug("Entry [{},{}] successfully saved", shortenedId, fullUrl);
+    LOG.debug("Entry [{}, {}] successfully saved", shortenedId, fullUrl);
   }
 
   @Override
