@@ -29,7 +29,7 @@ public class UrlShortenerRestControllerShould {
 
   private static final URI OSOCO_URI = URI.create("http://www.osoco.es");
   private static final URI ESAILORS_URI = URI.create("http://www.esailors.de");
-  private static final URI URL_SHORTENER_BASE_URL = URI.create("http://oso.co/");
+  private static final URI URL_SHORTENER_BASE_URL = URI.create("http://localhost/");
   public static final String OSOCO_URL_HASH = "339d3b53";
   public static final String ESAILORS_URL_HASH = "e7ba36c9";
 

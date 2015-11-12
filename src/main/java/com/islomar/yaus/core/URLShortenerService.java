@@ -15,9 +15,6 @@ import java.util.Optional;
 @Service
 public class URLShortenerService {
 
-  //TODO: remove
-  private static final URI URL_SHORTENER_BASE_URL = URI.create("http://oso.co/");
-
   private final ShortenedUrlRepository shortenedUrlRepository;
   private final ShortenerAlgorithm shortenerAlgorithm;
 
@@ -29,14 +26,14 @@ public class URLShortenerService {
 
   //TODO: refactor, URI vs URL vs String
   //TODO: wher to validate URL
-  public URI shorten(String urlStringToBeShortened) throws MalformedURLException {
+  public String shorten(String urlStringToBeShortened) throws MalformedURLException {
 
     URL urlToBeShortened = URI.create(urlStringToBeShortened).toURL();
 
     String shortenedUrlId = this.shortenerAlgorithm.shorten(urlToBeShortened.toString());
     shortenedUrlRepository.save(shortenedUrlId, urlToBeShortened);
 
-    return URI.create(URL_SHORTENER_BASE_URL + shortenedUrlId);
+    return shortenedUrlId;
   }
 
   public Optional<URL> findURLById(String shortUrlId) {
