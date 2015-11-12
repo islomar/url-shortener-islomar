@@ -21,9 +21,7 @@ import static org.mockito.Mockito.verify;
 @RunWith(MockitoJUnitRunner.class)
 public class URLShortenerServiceShould {
 
-  //TODO: DRY for these constants
   private static final URI OSOCO_URI = URI.create("http://www.osoco.es");
-  private static final URI ESAILORS_URI = URI.create("http://www.esailors.de");
   public static final String OSOCO_URL_MURMUR3_HASH = "339d3b53";
 
   private URLShortenerService urlShortenerService;
