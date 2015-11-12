@@ -12,7 +12,6 @@ import java.util.concurrent.ConcurrentHashMap;
 @Repository
 public class InMemoryShortenedUrlRepository implements ShortenedUrlRepository {
 
-  //TODO - concurrency!!!
   private Map<String, URL> shortenedUriStore = new ConcurrentHashMap<>();
 
   @Override

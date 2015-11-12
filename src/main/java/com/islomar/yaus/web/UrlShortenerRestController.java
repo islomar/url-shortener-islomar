@@ -1,7 +1,7 @@
 package com.islomar.yaus.web;
 
-import com.islomar.yaus.core.InMemoryShortenedUrlRepository;
 import com.islomar.yaus.core.ShortenedUrlRepository;
+import com.islomar.yaus.core.ShortenerAlgorithm;
 import com.islomar.yaus.core.URLShortenerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +25,13 @@ import javax.servlet.http.HttpServletResponse;
 public class UrlShortenerRestController {
 
   private final ShortenedUrlRepository shortenedUrlRepository;
+  private final ShortenerAlgorithm shortenerAlgorithm;
 
   @Autowired
-  public UrlShortenerRestController(ShortenedUrlRepository shortenedUrlRepository) {
+  public UrlShortenerRestController(ShortenedUrlRepository shortenedUrlRepository, ShortenerAlgorithm shortenerAlgorithm) {
 
     this.shortenedUrlRepository = shortenedUrlRepository;
+    this.shortenerAlgorithm = shortenerAlgorithm;
   }
 
   @RequestMapping("/")
@@ -43,7 +45,7 @@ public class UrlShortenerRestController {
   @RequestMapping(value = "/{shortUrlId}", method = RequestMethod.GET)
   void redirectToFullUrl(@PathVariable String shortUrlId, HttpServletResponse httpServletResponse) throws IOException {
 
-    URLShortenerService urlShortenerService = new URLShortenerService(this.shortenedUrlRepository);
+    URLShortenerService urlShortenerService = new URLShortenerService(this.shortenedUrlRepository, shortenerAlgorithm);
     httpServletResponse.sendRedirect(urlShortenerService.findURLById(shortUrlId));
   }
 
@@ -52,7 +54,7 @@ public class UrlShortenerRestController {
   ResponseEntity<String> createShortUrl(@RequestBody String uriStringToBeShortened) {
 
     //TODO: it should be injected
-    URLShortenerService urlShortenerService = new URLShortenerService(this.shortenedUrlRepository);
+    URLShortenerService urlShortenerService = new URLShortenerService(this.shortenedUrlRepository, shortenerAlgorithm);
     try {
       return new ResponseEntity<String>(urlShortenerService.shorten(uriStringToBeShortened).toString(), HttpStatus.CREATED);
     } catch (IllegalArgumentException | MalformedURLException ex) {

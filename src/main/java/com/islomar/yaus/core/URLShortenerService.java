@@ -3,9 +3,6 @@ package com.islomar.yaus.core;
 
 import com.google.common.hash.Hashing;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
@@ -17,10 +14,11 @@ public class URLShortenerService {
   private static final URI URL_SHORTENER_BASE_URL = URI.create("http://oso.co/");
 
   private final ShortenedUrlRepository shortenedUrlRepository;
+  private final ShortenerAlgorithm shortenerAlgorithm;
 
-  //TODO: inject shortener algorithm
-  public URLShortenerService(final ShortenedUrlRepository shortenedUrlRepository) {
+  public URLShortenerService(final ShortenedUrlRepository shortenedUrlRepository, ShortenerAlgorithm shortenerAlgorithm) {
     this.shortenedUrlRepository = shortenedUrlRepository;
+    this.shortenerAlgorithm = shortenerAlgorithm;
   }
 
   //TODO: refactor, URI vs URL vs String
@@ -29,14 +27,10 @@ public class URLShortenerService {
 
     URL urlToBeShortened = URI.create(urlStringToBeShortened).toURL();
 
-    String shortenedUrlId = generateShortURL(urlToBeShortened);
+    String shortenedUrlId = this.shortenerAlgorithm.shorten(urlToBeShortened.toString());
     shortenedUrlRepository.save(shortenedUrlId, urlToBeShortened);
 
     return URI.create(URL_SHORTENER_BASE_URL + shortenedUrlId);
-  }
-
-  private String generateShortURL(URL urlToBeShortened) {
-    return Hashing.murmur3_32().hashString(urlToBeShortened.toString(), StandardCharsets.UTF_8).toString();
   }
 
   //TODO: what if nothing is found?
