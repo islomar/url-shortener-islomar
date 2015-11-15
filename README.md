@@ -3,7 +3,7 @@
 
 # Yet Another URL Shortener (YAUS)
 URL shortener web application. 
-Currently there is no user-friendly interface, you would need to use something like Postman for sending POSTs requests.
+Currently there is no user-friendly interface, you would need to use something like Postman or curl for sending POSTs requests.
  
 # How to run it locally
 * You will need **Java 8** and **Maven** installed.
@@ -49,6 +49,7 @@ The main frameworks, technologies and platforms used have been:
 * Use something like Swagger for documenting the API.
 * Create log files.
 * Use Spock for testing.
+* Use Spring integration tests for the end-to-end testing.
 * Sanitize URL for malicious JavaScript.
 * Create load tests to check the boundaries of the number of requests allowed (detect concurrency problems).
 * New features:
