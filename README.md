@@ -26,11 +26,11 @@ You have two options to check:
 
 ## Continuous Deployment
 The main frameworks, technologies and platforms used have been:
-* Spring Boot (just to play around for the first time with it... using Spring for somthing like this is definitely overkilling...).
-* Heroku: I have connected the GitHub account to Heroku, as well to TravisCI (for CI) and coveralls.io (code coverage):
+* **Spring Boot** (just to play around for the first time with it... using Spring for somthing like this is definitely overkilling...).
+* **Heroku**: I have connected the GitHub account to Heroku, as well to TravisCI (for CI) and coveralls.io (code coverage):
  * Each time a push is done to the GitHub repository, it builds the application and executes all the tests. If the tests execution is successful, 
  then the deployment to Heroku is done... et voilà!!! :-)
- * Papertrail addon of Heroku to monitor logs.
+ * **Papertrail** addon of Heroku to monitor logs.
 
 ## Management Services
 * Health: [http://url-shortener-islomar.herokuapp.com/health](http://url-shortener-islomar.herokuapp.com/health)
@@ -41,6 +41,7 @@ The main frameworks, technologies and platforms used have been:
 ## Next improvements
 * Create a user-friendly interface so that a user can shorten a URL without the need of anything else (e.g. create a simple web form).
 * Persist shortened URLs in a database (e.g. PostgreSQL).
+* Use integration tests.
 * Use JSon to send and receive information (instead of plain text).
 * Store Entities instead of a Map<Stirng, URL>, which includes the id and the absolute URL (probably more things in the future, like expiration time). 
 * Buy a short domain to make a forward to Heroku (so that I could create shortened URLs like http://isi.co/f3065ee6).
