@@ -40,7 +40,7 @@ The main frameworks, technologies and platforms used have been:
 
 ## Next improvements
 * Create a user-friendly interface so that a user can shorten a URL without the need of anything else (e.g. create a simple web form).
-* Persist shortened URLs in a database (e.g. PostgreSQL).
+* Persist shortened URLs in a database (e.g. PostgreSQL, MongoDB): [http://www.javaadvent.com/2015/12/quick-web-app-prototyping-with-spring-boot-and-mongodb.html](http://www.javaadvent.com/2015/12/quick-web-app-prototyping-with-spring-boot-and-mongodb.html)
 * Use integration tests.
 * Use JSon to send and receive information (instead of plain text).
 * Store Entities instead of a Map<Stirng, URL>, which includes the id and the absolute URL (probably more things in the future, like expiration time). 
