@@ -37,6 +37,13 @@ The main frameworks, technologies and platforms used have been:
 * Metrics: [http://url-shortener-islomar.herokuapp.com/metrics](http://url-shortener-islomar.herokuapp.com/metrics)
 * Info: [http://url-shortener-islomar.herokuapp.com/info](http://url-shortener-islomar.herokuapp.com/info)
 * [http://docs.spring.io/spring-boot/docs/1.2.7.RELEASE/reference/htmlsingle/#production-ready-endpoints](http://docs.spring.io/spring-boot/docs/1.2.7.RELEASE/reference/htmlsingle/#production-ready-endpoints)
+   
+## API documentation
+* (What is Swagger?)[http://swagger.io/getting-started-with-swagger-i-what-is-swagger/]
+* The goal of (Swagger)[http://swagger.io]™ is to define a standard, language-agnostic interface to REST APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection.
+* Technically speaking - Swagger is a formal specification surrounded by a large ecosystem of tools, which includes everything from front-end user interfaces, low-level code libraries and commercial API management solutions.
+
+                   
 
 ## Next improvements
 * Create a user-friendly interface so that a user can shorten a URL without the need of anything else (e.g. create a simple web form).
